@@ -282,6 +282,16 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
 .socials a:hover{background:var(--led);border-color:var(--led);color:var(--ink);transform:translateY(-2px)}
 
 /* responsive */
+/* residential form modal */
+.form-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)}
+.form-modal[hidden]{display:none}
+.form-modal-backdrop{position:absolute;inset:0;background:rgba(25,26,23,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.form-modal-panel{position:relative;background:var(--paper);border-radius:14px;width:min(720px,100%);max-height:90svh;overflow-y:auto;padding:clamp(16px,3vw,30px);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
+.form-modal-close{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:var(--paper-2);color:var(--ink);font-size:1.3rem;line-height:1;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .3s var(--ease),color .3s var(--ease)}
+.form-modal-close:hover{background:var(--green);color:var(--paper)}
+.form-modal iframe{width:100%;min-height:440px;border:none;display:block}
+body.form-modal-open{overflow:hidden}
+
 @media (max-width:1000px){
   .pillars{grid-template-columns:1fr}
   .crew-grid{grid-template-columns:1fr 1fr}
@@ -337,7 +347,6 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:16782382647">678-238-2647</a>
-      <a class="btn btn-dark" href="start-your-project.html">Start your project</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -374,34 +383,13 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
         <p class="c-kicker">For homeowners</p>
         <h3>Residential clients</h3>
         <p class="c-copy">Charging at home should be effortless. Complete our quick intake form and receive a fast, free estimate for your EV charger or home electrical project.</p>
-        <a class="btn btn-light" href="https://form.jotform.com/243034056318147" target="_blank" rel="noopener">Start residential project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button class="btn btn-light" type="button" id="resFormOpen">Start residential project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <div class="start-cell reveal" data-delay="2">
         <p class="c-kicker">Partner with us</p>
         <h3>Commercial clients</h3>
         <p class="c-copy">Tell us about your commercial project — we're excited to hear what you've got going on.</p>
-        <form id="commercialForm" novalidate>
-          <div class="form-grid">
-            <div class="field">
-              <label for="bizName">Business name</label>
-              <input type="text" id="bizName" name="bizName" placeholder="Your company" autocomplete="organization" required>
-            </div>
-            <div class="field">
-              <label for="contactName">Contact name</label>
-              <input type="text" id="contactName" name="contactName" placeholder="Full name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="phone">Phone number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(678) 000-0000" autocomplete="tel" required>
-            </div>
-            <div class="field">
-              <label for="email">Email address</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-light" style="margin-top:32px">Submit project inquiry <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <p class="form-note">Submitting opens a pre-filled email to our team — or write us directly at <a href="mailto:accounts@abevpowersolutions.com?subject=Start%20My%20Project!">accounts@abevpowersolutions.com</a>.</p>
-        </form>
+        <button class="btn btn-light" type="button" id="comFormOpen">Start commercial project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
     </div>
     <div class="start-contact reveal">
@@ -514,29 +502,36 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
     revealEls.forEach(function(el){ io.observe(el); });
   }
 
-  var form = document.getElementById('commercialForm');
-  if(form){
-    form.addEventListener('submit', function(ev){
-      ev.preventDefault();
-      var biz = document.getElementById('bizName').value.trim();
-      var name = document.getElementById('contactName').value.trim();
-      var phone = document.getElementById('phone').value.trim();
-      var email = document.getElementById('email').value.trim();
-      if(!biz || !name || !phone || !email){
-        form.querySelectorAll('input').forEach(function(i){ i.style.borderColor = i.value.trim() ? '' : '#C96A5A'; });
-        return;
-      }
-      var body = 'Commercial project inquiry%0D%0A%0D%0ABusiness name: ' + encodeURIComponent(biz) +
-        '%0D%0AContact name: ' + encodeURIComponent(name) +
-        '%0D%0APhone: ' + encodeURIComponent(phone) +
-        '%0D%0AEmail: ' + encodeURIComponent(email) +
-        '%0D%0A%0D%0AProject details: ';
-      window.location.href = 'mailto:accounts@abevpowersolutions.com?subject=' + encodeURIComponent('Start My Project! — ' + biz) + '&body=' + body;
-    });
-    form.querySelectorAll('input').forEach(function(i){
-      i.addEventListener('input', function(){ i.style.borderColor = ''; });
-    });
-  }
+})();
+</script>
+
+<div class="form-modal" id="resModal" role="dialog" aria-modal="true" aria-label="Start residential project form" hidden>
+  <div class="form-modal-backdrop" data-close></div>
+  <div class="form-modal-panel">
+    <button class="form-modal-close" type="button" aria-label="Close form" data-close>&times;</button>
+    <iframe src="https://api.leadconnectorhq.com/widget/survey/KvAlrmuAtLBF8AVydjfH" style="border:none;width:100%;" scrolling="no" id="KvAlrmuAtLBF8AVydjfH" title="survey"></iframe>
+  </div>
+</div>
+<div class="form-modal" id="comModal" role="dialog" aria-modal="true" aria-label="Start commercial project form" hidden>
+  <div class="form-modal-backdrop" data-close></div>
+  <div class="form-modal-panel">
+    <button class="form-modal-close" type="button" aria-label="Close form" data-close>&times;</button>
+    <iframe src="https://api.leadconnectorhq.com/widget/survey/U8DooBAymQSBEOZ251oW" style="border:none;width:100%;" scrolling="no" id="U8DooBAymQSBEOZ251oW" title="survey"></iframe>
+  </div>
+</div>
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<script>
+(function(){
+  [['resFormOpen','resModal'],['comFormOpen','comModal']].forEach(function(pair){
+    var opener = document.getElementById(pair[0]);
+    var modal = document.getElementById(pair[1]);
+    if(!modal || !opener) return;
+    function openModal(){ modal.hidden = false; document.body.classList.add('form-modal-open'); modal.querySelector('.form-modal-close').focus(); }
+    function closeModal(){ modal.hidden = true; document.body.classList.remove('form-modal-open'); opener.focus(); }
+    opener.addEventListener('click', openModal);
+    modal.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) closeModal(); });
+  });
 })();
 </script>
 </body>
