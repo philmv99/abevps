@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABEV Power Solutions — Turn-Key EV Charging & Electrical Experts | Greater Atlanta</title>
+<meta name="description" content="ABEV Power Solutions is your local turn-key EV charging and full-service electrical partner across Greater Atlanta and beyond.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F3D2B'/%3E%3Cpath d='M17.5 6L10 18h5l-1.5 8L21 14h-5l1.5-8z' fill='%23F6F4EF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F4EF; --paper-2:#EFEBE3; --paper-3:#E8E3D8;
+  --ink:#191A17; --muted:#6E6A61; --line:#DDD7CB;
+  --green:#1F3D2B; --green-bright:#3E7A52; --led:#5FBF7E;
+  --pill:999px; --shell:1240px;
+  --ease:cubic-bezier(.22,.61,.21,1);
+  --sans:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--green);color:var(--paper)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--green-bright);outline-offset:3px;border-radius:4px}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.accent{color:var(--green)}
+
+.eyebrow{font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:14px}
+.eyebrow .tick{width:26px;height:1px;background:var(--green);position:relative;flex:none}
+.eyebrow .tick::after{content:"";position:absolute;right:0;top:-1.5px;width:8px;height:4px;border-radius:2px;background:var(--led);box-shadow:0 0 8px rgba(95,191,126,.9);animation:ledPulse 3.2s var(--ease) infinite}
+@keyframes ledPulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+.section-head{max-width:840px}
+.section-head h1,.section-head h2{font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:400;letter-spacing:-.025em;line-height:1.12;margin-top:22px}
+.section-head .lede{margin-top:22px;color:var(--muted);font-size:clamp(1rem,1.4vw,1.125rem);max-width:640px}
+section{padding:clamp(88px,10vw,144px) 0;position:relative}
+
+.charge-rule{position:relative;height:1px;background:var(--line);overflow:visible}
+.charge-rule::after{content:"";position:absolute;top:-1.5px;left:0;width:34px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--led),transparent);filter:drop-shadow(0 0 6px rgba(95,191,126,.8));animation:travel 9s linear infinite}
+@keyframes travel{0%{left:-40px;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:100%;opacity:0}}
+
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:var(--pill);padding:15px 30px;font-size:.92rem;font-weight:500;letter-spacing:.01em;transition:background .35s var(--ease),color .35s var(--ease),transform .35s var(--ease),box-shadow .35s var(--ease);white-space:nowrap}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+.btn-dark{background:#95C95C;color:var(--green)}
+.btn-dark:hover{background:var(--green);color:var(--paper);transform:translateY(-2px);box-shadow:0 14px 32px -14px rgba(31,61,43,.55)}
+.btn-light{background:var(--paper);color:var(--ink)}
+.btn-light:hover{background:var(--led);color:var(--ink);transform:translateY(-2px)}
+.link-arrow{display:inline-flex;align-items:center;gap:10px;font-weight:500;font-size:.95rem;color:var(--green);margin-top:26px}
+.link-arrow svg{transition:transform .35s var(--ease)}
+.link-arrow:hover svg{transform:translateX(5px)}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .45s var(--ease),box-shadow .45s var(--ease)}
+.nav-inner{max-width:var(--shell);margin:0 auto;padding:0 clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px;transition:height .45s var(--ease)}
+.nav.scrolled{background:rgba(246,244,239,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav.scrolled .nav-inner{height:66px}
+.nav.solid{background:rgba(246,244,239,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.wordmark{display:flex;align-items:baseline;gap:10px;line-height:1}
+.wordmark .mark{font-weight:600;font-size:1.28rem;letter-spacing:.06em}
+.wordmark .mark span{color:var(--green)}
+.wordmark .sub{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.6vw,36px);list-style:none}
+.nav-links a{font-size:.9rem;color:var(--ink);position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a.active{font-weight:600;color:var(--green)}
+.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:.88rem;color:var(--muted)}
+.nav-phone:hover{color:var(--green)}
+.nav .btn{padding:12px 24px;font-size:.86rem}
+.nav .btn-dark{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.nav .btn-dark:hover{background:var(--green);color:var(--paper);border-color:var(--green)}
+.nav .wordmark img{height:44px;width:auto;display:block}
+.nav-toggle{display:none;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .35s var(--ease)}
+.mobile-menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,64px);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
+.mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu a{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line)}
+.mobile-menu a.active{color:var(--green);font-weight:600}
+.mobile-menu a:last-of-type{border-bottom:none}
+.mobile-menu .m-contact{margin-top:36px;color:var(--muted);font-size:.95rem;line-height:2}
+body.menu-open{overflow:hidden}
+body.menu-open .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+body.menu-open .nav-toggle span:nth-child(2){opacity:0}
+body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* page header (interior pages) */
+.page-head{padding:calc(78px + clamp(64px,9vw,108px)) 0 clamp(44px,6vw,68px)}
+.page-head .lede{margin-top:22px;color:var(--muted);font-size:clamp(1rem,1.4vw,1.125rem);max-width:640px}
+.page-head h1{font-size:clamp(2.5rem,5.4vw,4.2rem);font-weight:400;letter-spacing:-.03em;line-height:1.08;margin-top:22px;max-width:20ch}
+
+/* hero (home only) */
+.hero{min-height:100svh;padding:0;display:flex;flex-direction:column}
+.hero-content{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(78px + clamp(44px,8vh,92px)) clamp(20px,5vw,48px) 0}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(25,26,23,.1);border-radius:var(--pill);padding:9px 18px;font-size:.78rem;font-weight:500;letter-spacing:.05em}
+.hero h1{margin-top:0;font-size:clamp(2.6rem,6.2vw,5.1rem);font-weight:400;letter-spacing:-.032em;line-height:1.08;max-width:16ch}
+.hero .hero-sub{margin-top:26px;color:#4A473F;font-size:clamp(1rem,1.5vw,1.16rem);max-width:52ch;line-height:1.65}
+.hero .btn{margin-top:38px;padding:17px 36px;font-size:.96rem}
+.hero-cred{margin-top:auto;padding:clamp(28px,4vh,44px) clamp(20px,5vw,48px) clamp(30px,4.5vh,46px);text-align:center}
+.hero-cred .cred-label{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#57544C;font-weight:500}
+.hero-cred ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,4vw,60px);margin-top:18px}
+.hero-cred li{font-size:clamp(.92rem,1.5vw,1.08rem);font-weight:500;letter-spacing:.04em;display:flex;align-items:center;gap:12px}
+.hero-cred li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--green);opacity:.55;margin-right:clamp(6px,1.6vw,22px)}
+.hero-badge,.hero h1,.hero .hero-sub,.hero .btn,.hero-cred{opacity:0;transform:translateY(22px);animation:rise 1s var(--ease) forwards}
+.hero h1{animation-delay:.12s}.hero .hero-sub{animation-delay:.24s}.hero .btn{animation-delay:.36s}.hero-cred{animation-delay:.55s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.1s}
+.reveal[data-delay="2"]{transition-delay:.2s}
+.reveal[data-delay="3"]{transition-delay:.3s}
+.reveal[data-delay="4"]{transition-delay:.4s}
+
+/* difference / stats */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(36px,6vw,96px);align-items:start}
+.statement{font-size:clamp(1.45rem,2.8vw,2.2rem);font-weight:400;letter-spacing:-.02em;line-height:1.35}
+.support{margin-top:26px;color:var(--muted);max-width:56ch}
+.charge-graphic{position:relative;max-width:400px;margin-top:18px;aspect-ratio:1/1;overflow:hidden}
+.charge-graphic img,.charge-graphic svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.arrival{transform-box:fill-box;transform-origin:center;animation:arrivalPulse 2.8s ease-in-out infinite}
+.charger-led{animation:ledBreathe 1.4s ease-in-out infinite alternate}
+@keyframes arrivalPulse{0%,82%{opacity:0;transform:scale(.4)}89%{opacity:.95;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}
+@keyframes ledBreathe{from{opacity:.45}to{opacity:1}}
+.stat-row{margin-top:clamp(56px,7vw,84px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.stat{padding:30px clamp(14px,2vw,28px) 6px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:none;padding-left:0}
+.stat .num{font-size:clamp(1.8rem,3.2vw,2.6rem);font-weight:300;letter-spacing:-.03em;line-height:1}
+.stat .num b{font-weight:300;color:var(--green)}
+.stat .lbl{margin-top:12px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* bands */
+.band{background:var(--paper-2)}
+.cta-band{background:var(--ink);color:var(--paper);text-align:center}
+.cta-band h2{font-size:clamp(2rem,4.4vw,3.3rem);font-weight:400;letter-spacing:-.026em;line-height:1.12;max-width:22ch;margin:22px auto 0}
+.cta-band .eyebrow{justify-content:center;color:var(--led)}
+.cta-band .eyebrow .tick{background:var(--led)}
+.cta-band p.sub{margin:20px auto 0;color:#A8A69E;max-width:52ch}
+.cta-band .btn{margin-top:36px}
+
+/* pillars with media */
+.pillars{margin-top:clamp(48px,6vw,72px);display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pillar{background:var(--paper);display:flex;flex-direction:column;transition:background .45s var(--ease)}
+.band .pillar{background:var(--paper-2)}
+.pillar:hover{background:#FBFAF6}
+.pillar-media{aspect-ratio:16/10;overflow:hidden}
+.pillar-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.pillar:hover .pillar-media img{transform:scale(1.04)}
+.pillar-body{padding:clamp(24px,3vw,38px);display:flex;flex-direction:column;flex:1}
+.pillar .p-kicker{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:500}
+.pillar h3{margin-top:14px;font-size:clamp(1.3rem,1.9vw,1.6rem);font-weight:400;letter-spacing:-.015em;line-height:1.2}
+.pillar ul{list-style:none;margin-top:auto;padding-top:26px}
+.pillar li{padding:12px 0;border-top:1px solid var(--line);font-size:.93rem;color:#4C4941;display:flex;gap:12px;align-items:baseline}
+.pillar li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--green);opacity:.6;transform:translateY(-2px)}
+
+/* services grid */
+.svc-grid{margin-top:clamp(52px,6vw,80px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc-card{background:var(--paper);display:flex;flex-direction:column;transition:background .45s var(--ease)}
+.svc-card:hover{background:#FBFAF6}
+.svc-wide{grid-column:1/-1}
+.svc-media{aspect-ratio:16/9;overflow:hidden;background:var(--paper-3)}
+.svc-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.svc-card:hover .svc-media img{transform:scale(1.04)}
+.svc-media.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);aspect-ratio:auto}
+.svc-media.trio img{aspect-ratio:1/1;height:auto}
+.svc-media.panel{display:flex;align-items:center;justify-content:center;color:var(--green)}
+.svc-media.panel svg{width:56px;height:56px;opacity:.85}
+.svc-body{padding:clamp(24px,2.8vw,36px)}
+.svc-tag{display:inline-block;font-size:.62rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:6px 12px;border-radius:var(--pill);border:1px solid var(--line);color:var(--muted);background:var(--paper)}
+.svc-tag.ev{color:var(--green);border-color:rgba(31,61,43,.3);background:rgba(31,61,43,.05)}
+.svc-body h3{margin-top:16px;font-size:clamp(1.2rem,1.8vw,1.45rem);font-weight:500;letter-spacing:-.012em}
+.svc-body p{margin-top:10px;color:var(--muted);font-size:.93rem;line-height:1.65}
+
+/* EV page */
+.value-trio{margin-top:clamp(52px,6vw,76px);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3.4vw,44px)}
+.value{padding-top:26px;border-top:1px solid var(--ink);position:relative}
+.value::before{content:"";position:absolute;top:-1.5px;left:0;width:30px;height:3px;border-radius:2px;background:var(--led);box-shadow:0 0 8px rgba(95,191,126,.8);animation:ledPulse 3.2s var(--ease) infinite}
+.value:nth-child(2)::before{animation-delay:.6s}
+.value:nth-child(3)::before{animation-delay:1.2s}
+.value .v-icon{width:40px;height:40px;color:var(--green);margin-bottom:20px}
+.value h3{font-size:1.16rem;font-weight:500}
+.value p{margin-top:10px;color:var(--muted);font-size:.94rem}
+.stress{margin-top:clamp(72px,9vw,112px);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.35fr);gap:clamp(36px,6vw,88px);align-items:center}
+.stress-media{border:1px solid var(--line);overflow:hidden;max-width:400px}
+.stress-media img{width:100%;height:auto}
+.stress h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:400;letter-spacing:-.022em;line-height:1.18}
+.stress .support{max-width:none}
+.apart-list{list-style:none;margin-top:30px}
+.apart-list li{display:flex;gap:18px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);font-size:.97rem;color:#3F3C35}
+.apart-list li .dot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--green);transform:translateY(-1px)}
+.process{margin-top:clamp(72px,9vw,120px)}
+.process-track{position:relative;margin-top:clamp(44px,5vw,64px)}
+.process-line{position:absolute;top:9px;left:0;right:0;height:1px;background:var(--line)}
+.process-line::after{content:"";position:absolute;top:-1.5px;left:0;width:60px;height:4px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--led),transparent);filter:drop-shadow(0 0 6px rgba(95,191,126,.9));animation:travel 7s linear infinite}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.step{position:relative;padding-top:44px}
+.step .node{position:absolute;top:0;left:0;width:19px;height:19px;border-radius:50%;background:var(--paper);border:1px solid var(--green);display:flex;align-items:center;justify-content:center}
+.step .node::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+.step .s-num{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);font-weight:600}
+.step h4{margin-top:8px;font-size:clamp(1.2rem,1.9vw,1.5rem);font-weight:500;letter-spacing:-.014em}
+.step p{margin-top:12px;color:var(--muted);font-size:.94rem;max-width:34ch}
+
+/* quote */
+.quote-band{background:var(--paper-2);text-align:center;padding:clamp(44px,5vw,64px) 0 clamp(56px,6.5vw,88px)}
+.quote-band blockquote{margin:0 auto;max-width:880px;font-size:clamp(1.5rem,3.2vw,2.5rem);font-weight:400;line-height:1.32;letter-spacing:-.02em}
+.quote-band blockquote::before{content:"\201C";display:block;font-size:3.4rem;line-height:.6;color:var(--green);margin-bottom:26px}
+.quote-band .q-context{margin:28px auto 0;max-width:560px;color:var(--muted);font-size:.98rem}
+.quote-band .q-attr{margin-top:34px;display:inline-flex;align-items:center;gap:14px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.quote-band .q-attr::before,.quote-band .q-attr::after{content:"";width:30px;height:1px;background:var(--green);opacity:.5}
+
+/* who we are */
+.mission-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(36px,6vw,88px);align-items:center}
+.mission-media{border:1px solid var(--line);overflow:hidden}
+.mission-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.mission p{color:#3F3C35;font-size:clamp(1rem,1.35vw,1.1rem)}
+.mission p+p{margin-top:20px}
+.mission .sig{margin-top:30px;font-weight:600;color:var(--green)}
+.crew-grid{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.crew-card{background:var(--paper);display:flex;flex-direction:column;transition:background .45s var(--ease)}
+.crew-card:hover{background:#FBFAF6}
+.crew-photo{aspect-ratio:4/5;overflow:hidden}
+.crew-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;filter:grayscale(1);transition:filter .7s var(--ease),transform 1.2s var(--ease)}
+.crew-card:hover .crew-photo img{filter:grayscale(0);transform:scale(1.03)}
+.crew-body{padding:clamp(20px,2.2vw,30px)}
+.crew-body h4{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.crew-body .role{margin-top:4px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600}
+.crew-body .note{margin-top:12px;font-size:.87rem;color:var(--muted);line-height:1.6}
+.assure{margin-top:clamp(64px,8vw,104px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,40px);border-top:1px solid var(--line);padding-top:clamp(36px,4.5vw,56px)}
+.assure-item h5{font-size:1rem;font-weight:600;display:flex;align-items:center;gap:11px}
+.assure-item h5 svg{flex:none;color:var(--green)}
+.assure-item p{margin-top:10px;font-size:.88rem;color:var(--muted)}
+
+/* start */
+.start{background:var(--ink);color:var(--paper)}
+.start .eyebrow{color:var(--led)}
+.start .eyebrow .tick{background:var(--led)}
+.start-grid{margin-top:clamp(24px,3vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#33352F;border:1px solid #33352F}
+.start-cell{background:var(--ink);padding:clamp(30px,3.6vw,52px)}
+.start-cell .c-kicker{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--led);font-weight:600}
+.start-cell h3{margin-top:14px;font-size:clamp(1.5rem,2.4vw,2rem);font-weight:400;letter-spacing:-.018em;color:var(--paper)}
+.start-cell .c-copy{margin-top:16px;color:#A8A69E;font-size:.95rem;max-width:46ch}
+.start-cell .btn{margin-top:32px}
+.field{margin-top:22px}
+.field label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#8B897F;font-weight:600;margin-bottom:9px}
+.field input{width:100%;background:transparent;border:none;border-bottom:1px solid #45463F;padding:10px 2px 12px;color:var(--paper);font:inherit;font-size:1rem;transition:border-color .35s var(--ease);border-radius:0}
+.field input::placeholder{color:#5E5F57}
+.field input:focus{outline:none;border-color:var(--led)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.form-note{margin-top:18px;font-size:.8rem;color:#8B897F}
+.form-note a{color:var(--led);border-bottom:1px solid rgba(95,191,126,.4)}
+.start-contact{margin-top:clamp(48px,5vw,64px);display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,56px);padding-top:clamp(30px,3.6vw,44px);border-top:1px solid #33352F}
+.start-contact .sc{font-size:.95rem}
+.start-contact .sc .k{display:block;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:#8B897F;margin-bottom:8px;font-weight:600}
+.start-contact .sc a{color:var(--paper);border-bottom:1px solid transparent;transition:border-color .3s var(--ease),color .3s var(--ease)}
+.start-contact .sc a:hover{color:var(--led);border-color:var(--led)}
+
+/* galleries */
+.gallery{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.gallery figure{overflow:hidden;background:var(--paper)}
+.gallery img{width:100%;height:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.2s var(--ease)}
+.gallery figure:hover img{transform:scale(1.05)}
+.strip{margin-top:clamp(40px,5vw,56px);display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.strip img{height:clamp(220px,26vw,320px);width:auto;flex:none;scroll-snap-align:start;border:1px solid var(--line)}
+
+/* footer */
+.footer{background:var(--ink);color:#A8A69E;border-top:1px solid #33352F;padding:clamp(56px,7vw,88px) 0 40px}
+.footer-top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px)}
+.footer .wordmark .mark{color:var(--paper)}
+.footer .wordmark .mark span{color:var(--led)}
+.footer .wordmark .sub{color:#8B897F}
+.footer .f-tag{margin-top:20px;max-width:40ch;font-size:1.02rem;color:#D9D6CC;line-height:1.6}
+.footer h6{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#8B897F;font-weight:600;margin-bottom:18px}
+.footer ul{list-style:none}
+.footer li{margin-bottom:11px;font-size:.92rem}
+.footer a{transition:color .3s var(--ease)}
+.footer a:hover{color:var(--led)}
+.footer address{font-style:normal;font-size:.92rem;line-height:2}
+.footer-bottom{margin-top:clamp(48px,6vw,68px);padding-top:28px;border-top:1px solid #33352F;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;font-size:.8rem;color:#8B897F}
+.socials{display:flex;gap:10px}
+.socials a{width:38px;height:38px;border-radius:50%;border:1px solid #45463F;display:flex;align-items:center;justify-content:center;color:#D9D6CC;transition:all .35s var(--ease)}
+.socials a:hover{background:var(--led);border-color:var(--led);color:var(--ink);transform:translateY(-2px)}
+
+/* responsive */
+@media (max-width:1000px){
+  .pillars{grid-template-columns:1fr}
+  .crew-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:none;padding-left:0}
+  .stat{padding-top:24px;padding-bottom:0}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .svc-grid{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .nav-links,.nav-phone,.nav-cta .btn{display:none}
+  .nav-toggle{display:flex}
+  .split,.mission-split,.stress{grid-template-columns:1fr;gap:32px}
+  .stress-media{max-width:340px}
+  .value-trio{grid-template-columns:1fr;gap:34px}
+  .steps{grid-template-columns:1fr;gap:44px}
+  .process-line{display:none}
+  .step{padding-top:0;padding-left:40px}
+  .step .node{top:6px}
+  .start-grid,.form-grid{grid-template-columns:1fr}
+  .assure{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media (max-width:560px){
+  .crew-grid,.assure,.footer-top{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery figure:last-child{grid-column:span 2}
+  .hero-cred li+li::before{display:none}
+  .hero-cred ul{gap:10px 20px}
+  .svc-media.trio{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .reveal,.hero-badge,.hero h1,.hero .hero-sub,.hero .btn,.hero-cred{opacity:1;transform:none}
+  .crew-photo img{filter:grayscale(0)}
+  .arrival{animation:none;opacity:.45}
+  .charger-led{animation:none}
+  .charge-graphic .pulse-dot{display:none}
+}
+.hero{overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(246,244,239,.94) 0%,rgba(246,244,239,.66) 26%,rgba(246,244,239,.1) 52%,rgba(246,244,239,0) 66%,rgba(246,244,239,.42) 92%,rgba(246,244,239,.86) 100%),url("images/teslabg.jpg") center 62%/cover no-repeat;opacity:0;transform:scale(.95);animation:heroBg 2s var(--ease) forwards}
+@keyframes heroBg{to{opacity:1;transform:scale(1)}}</style>
+</head>
+<body>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="wordmark" aria-label="ABEV Power Solutions — home">
+      <img src="images/logo.avif" alt="ABEV Power Solutions">
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Welcome</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="what-we-do.html">What We Do</a></li>
+        <li><a href="ev-charging.html">EV Charging</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:16782382647">678-238-2647</a>
+      <a class="btn btn-dark" href="start-your-project.html">Start your project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="index.html" class="active">Welcome</a>
+  <a href="who-we-are.html">Who We Are</a>
+  <a href="what-we-do.html">What We Do</a>
+  <a href="ev-charging.html">EV Charging</a>
+  <a href="start-your-project.html">Start Your Project</a>
+  <div class="m-contact">
+    <a href="tel:16782382647">678-238-2647</a> &nbsp;·&nbsp; <a href="tel:16785912999">678-591-2999</a><br>
+    <a href="mailto:accounts@abevpowersolutions.com?subject=Start%20My%20Project!">accounts@abevpowersolutions.com</a>
+  </div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero" aria-label="Welcome">
+  <div class="hero-content">
+    <h1>Your local turn-key <span class="accent">EV Charging</span> Experts</h1>
+    <p class="hero-sub">From project design to completion — every step is rooted in sustainability for a cleaner future.</p>
+    <a class="btn btn-dark" href="start-your-project.html">Start your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+  <div class="hero-cred">
+    <p class="cred-label">Credentials behind every install</p>
+    <ul>
+      <li>EVITP Certified</li>
+      <li>IBEW Trained</li>
+      <li>Licensed &amp; Insured</li>
+      <li>100% Satisfaction Guarantee</li>
+    </ul>
+  </div>
+</section>
+
+<!-- THE DIFFERENCE -->
+<section aria-labelledby="diff-h">
+  <div class="shell">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow" id="diff-h"><span class="tick"></span>The Difference</p>
+        <div class="charge-graphic" role="img" aria-label="Electric vehicle receiving a looping green charging pulse">
+          <img src="images/charge.jpg" alt="" loading="lazy">
+          <svg viewBox="0 0 1254 1254" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+            <defs>
+              <filter id="softGlow" x="-120%" y="-120%" width="340%" height="340%">
+                <feGaussianBlur stdDeviation="11" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="tightGlow" x="-180%" y="-180%" width="460%" height="460%">
+                <feGaussianBlur stdDeviation="5.5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <radialGradient id="arrivalGlow">
+                <stop offset="0" stop-color="#eaffef" stop-opacity=".95"/>
+                <stop offset=".28" stop-color="#68ff9a" stop-opacity=".75"/>
+                <stop offset="1" stop-color="#42ff82" stop-opacity="0"/>
+              </radialGradient>
+              <path id="cablePath" d="M 1093 552 C 1095 684, 1096 844, 1090 948 C 1084 1015, 1037 1037, 980 1034 C 909 1030, 853 997, 817 943 C 783 892, 775 807, 770 731 C 767 679, 759 646, 728 631" pathLength="1"/>
+            </defs>
+            <line class="charger-led" x1="1096" y1="500" x2="1096" y2="542" stroke="#54ff8e" stroke-width="4" stroke-linecap="round" filter="url(#tightGlow)"/>
+            <circle class="pulse-dot" r="18" fill="#53ff8d" opacity=".58" filter="url(#softGlow)">
+              <animateMotion dur="2.8s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".42 0 .25 1"><mpath href="#cablePath"/></animateMotion>
+              <animate attributeName="opacity" values="0;.62;.62;0" keyTimes="0;.06;.9;1" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="pulse-dot" r="8" fill="#74ffa2" opacity=".50" filter="url(#tightGlow)">
+              <animateMotion begin="-0.10s" dur="2.8s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".42 0 .25 1"><mpath href="#cablePath"/></animateMotion>
+            </circle>
+            <circle class="pulse-dot" r="5" fill="#baffcb" opacity=".40" filter="url(#tightGlow)">
+              <animateMotion begin="-0.19s" dur="2.8s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".42 0 .25 1"><mpath href="#cablePath"/></animateMotion>
+            </circle>
+            <circle class="pulse-dot" r="5.5" fill="#eaffef" filter="url(#tightGlow)">
+              <animateMotion dur="2.8s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines=".42 0 .25 1"><mpath href="#cablePath"/></animateMotion>
+              <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.04;.92;1" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="arrival" cx="728" cy="631" r="28" fill="url(#arrivalGlow)"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <p class="statement reveal">Powering your world, one project at a time — from cutting-edge EV charging to complete electrical services for residential, commercial, and industrial clients.</p>
+        <p class="support reveal" data-delay="1">We stay from the first drawing to the final inspection. Design, installation, and ongoing maintenance are handled by one accountable team — so safety, code compliance, and seamless performance are built into every step of the way.</p>
+      </div>
+    </div>
+    <div class="stat-row reveal" data-delay="2">
+      <div class="stat"><p class="num">50<b>+</b></p><p class="lbl">Years combined experience</p></div>
+      <div class="stat"><p class="num">3</p><p class="lbl">Sectors — home, commercial, industrial</p></div>
+      <div class="stat"><p class="num">Turn-key</p><p class="lbl">Design through power-up</p></div>
+      <div class="stat"><p class="num">ATL<b>+</b></p><p class="lbl">Greater Atlanta &amp; beyond</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="shell"><div class="charge-rule" role="presentation"></div></div>
+
+<!-- WHAT WE DO PREVIEW -->
+<section class="band" aria-labelledby="wwd-h">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="tick"></span>What We Do</p>
+      <h2 id="wwd-h">Three disciplines, one accountable team.</h2>
+      <p class="lede">EV charging, full-service electrical, and the construction and planning that keep it all on track.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar reveal" data-delay="1">
+        <div class="pillar-media"><img src="images/wall-mounted-ev-charger.jpg" alt="ABEV technician completing an EV charger installation" loading="lazy"></div>
+        <div class="pillar-body">
+          <p class="p-kicker">01 — Core specialty</p>
+          <h3>EV Charging Solutions</h3>
+          <ul>
+            <li>Residential &amp; commercial EV charger installations</li>
+            <li>EV infrastructure &amp; utility coordination</li>
+            <li>Custom stenciling to highlight parking spaces</li>
+          </ul>
+        </div>
+      </article>
+      <article class="pillar reveal" data-delay="2">
+        <div class="pillar-media"><img src="images/electrical-maintenance-thermal.jpg" alt="Electrical maintenance work on a commercial system" loading="lazy"></div>
+        <div class="pillar-body">
+          <p class="p-kicker">02 — Full service</p>
+          <h3>Electrical Services</h3>
+          <ul>
+            <li>Commercial tenant buildouts &amp; remodels</li>
+            <li>Electrical repairs &amp; emergency restoration</li>
+            <li>Service contracts &amp; ongoing maintenance</li>
+          </ul>
+        </div>
+      </article>
+      <article class="pillar reveal" data-delay="3">
+        <div class="pillar-media"><img src="images/ev-parking-stencil.jpg" alt="Freshly stenciled and striped EV parking spaces" loading="lazy"></div>
+        <div class="pillar-body">
+          <p class="p-kicker">03 — Site &amp; strategy</p>
+          <h3>Construction &amp; Planning</h3>
+          <ul>
+            <li>Civil works — bollards, wheel stops, concrete &amp; asphalt repair</li>
+            <li>Project management &amp; permitting support</li>
+            <li>End-to-end planning to keep projects on track</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="reveal"><a class="link-arrow" href="what-we-do.html">Explore all services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="quote-band" aria-label="Client testimonial">
+  <div class="shell reveal">
+    <blockquote>&hellip;the only certified Tesla installer we found who truly understood the permitting and inspection&hellip;</blockquote>
+    <p class="q-context">From the first conversation to a clean line run from the basement panel up to the garage — and through final inspection — Luke described the whole install as clean, efficient, and worry-free.</p>
+    <p class="q-attr">Luke L. — Residential EV charger client</p>
+  </div>
+</section>
+
+<!-- STORY TEASER -->
+<section aria-labelledby="story-h">
+  <div class="shell">
+    <div class="mission-split">
+      <div class="mission-media reveal"><img src="images/crew-on-site.jpg" alt="The ABEV Power Solutions crew on site" loading="lazy"></div>
+      <div class="reveal" data-delay="1">
+        <p class="eyebrow" id="story-h"><span class="tick"></span>Our Story</p>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:400;letter-spacing:-.024em;line-height:1.14;margin-top:22px">Decades of electrical expertise, refocused on a greener future.</h2>
+        <p class="support">ABEV Power Solutions was created to assist and educate future generations with the electrification of our country — a turn-key specialist built around one mission: green energy.</p>
+        <a class="link-arrow" href="who-we-are.html">Discover our story <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT WORK -->
+<section class="band" aria-labelledby="work-h" style="padding-bottom:clamp(88px,10vw,144px)">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow" id="work-h"><span class="tick"></span>Recent Work</p>
+      <h2>Projects we're proud of.</h2>
+    </div>
+    <div class="strip reveal" data-delay="1">
+      <img src="images/project-ev-charger-complete.jpg" alt="ABEV project — completed EV charger installation" loading="lazy">
+      <img src="images/project-residential-electrical.jpg" alt="ABEV project — residential electrical work" loading="lazy">
+      <img src="images/project-charger-powered-up.png" alt="ABEV project — charger mounted and powered up" loading="lazy">
+      <img src="images/project-commercial-install.jpg" alt="ABEV project — commercial installation" loading="lazy">
+      <img src="images/project-finished-electrical.jpg" alt="ABEV project — finished electrical install" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="shell reveal">
+    <p class="eyebrow"><span class="tick"></span>Start Your Project</p>
+    <h2>Ready to power up?</h2>
+    <p class="sub">Fast, free estimates for residential and commercial projects — planning, permitting, installation, and final touches, all handled for you.</p>
+    <a class="btn btn-light" href="start-your-project.html">Start your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="wordmark" aria-label="ABEV Power Solutions — home">
+          <span class="mark">A<span>B</span>EV</span>
+          <span class="sub">Power Solutions</span>
+        </a>
+        <p class="f-tag">Turning decades of electrical expertise into a mission for a greener future.</p>
+      </div>
+      <div>
+        <h6>Explore</h6>
+        <ul>
+          <li><a href="index.html">Welcome</a></li>
+          <li><a href="who-we-are.html">Who We Are</a></li>
+          <li><a href="what-we-do.html">What We Do</a></li>
+          <li><a href="ev-charging.html">EV Charging</a></li>
+          <li><a href="start-your-project.html">Start Your Project</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contact</h6>
+        <address>
+          Serving the Greater Atlanta area &amp; beyond<br>
+          3043 Braselton Hwy, Dacula, GA 30019<br>
+          <a href="tel:16782382647">678-238-2647</a> · <a href="tel:16785912999">678-591-2999</a><br>
+          <a href="mailto:accounts@abevpowersolutions.com?subject=Start%20My%20Project!">accounts@abevpowersolutions.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 ABEV Power Solutions. All rights reserved. · EVITP Certified · IBEW</p>
+      <div class="socials">
+        <a href="https://www.instagram.com/abevpowersolutions/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/people/ABEV-Power-Solutions/61558575230888/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8h3V4.5h-3c-2.2 0-4 1.8-4 4V11H7v3.5h3V21h3.5v-6.5h3l.5-3.5h-3.5V8.8c0-.5.3-.8.5-.8z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/abev-power-solutions" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V17M8 7.6v.1M12 17v-3.6c0-1.3 1-2.4 2.3-2.4s2.2 1 2.2 2.4V17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 24); };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  function setMenu(open){
+    document.body.classList.toggle('menu-open', open);
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+  toggle.addEventListener('click', function(){ setMenu(!menu.classList.contains('open')); });
+
+  /* image fallback: if the upscaled URL fails, load the site's original */
+  document.querySelectorAll('img[data-fb]').forEach(function(im){
+    im.addEventListener('error', function(){
+      if(im.dataset.fb){ im.src = im.dataset.fb; im.removeAttribute('data-fb'); }
+    });
+  });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if(prefersReduced || !('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  var form = document.getElementById('commercialForm');
+  if(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var biz = document.getElementById('bizName').value.trim();
+      var name = document.getElementById('contactName').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var email = document.getElementById('email').value.trim();
+      if(!biz || !name || !phone || !email){
+        form.querySelectorAll('input').forEach(function(i){ i.style.borderColor = i.value.trim() ? '' : '#C96A5A'; });
+        return;
+      }
+      var body = 'Commercial project inquiry%0D%0A%0D%0ABusiness name: ' + encodeURIComponent(biz) +
+        '%0D%0AContact name: ' + encodeURIComponent(name) +
+        '%0D%0APhone: ' + encodeURIComponent(phone) +
+        '%0D%0AEmail: ' + encodeURIComponent(email) +
+        '%0D%0A%0D%0AProject details: ';
+      window.location.href = 'mailto:accounts@abevpowersolutions.com?subject=' + encodeURIComponent('Start My Project! — ' + biz) + '&body=' + body;
+    });
+    form.querySelectorAll('input').forEach(function(i){
+      i.addEventListener('input', function(){ i.style.borderColor = ''; });
+    });
+  }
+})();
+</script>
+</body>
+</html>
