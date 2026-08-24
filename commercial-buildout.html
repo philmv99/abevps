@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Start Your Project | ABEV Power Solutions</title>
-<meta name="description" content="Start your residential or commercial project with ABEV Power Solutions — fast, free estimates for EV charging and electrical work across Greater Atlanta.">
+<title>Commercial Tenant Buildouts & Electrical Construction | ABEV Power Solutions</title>
+<meta name="description" content="Complete electrical build-outs for office, retail, warehouse, and industrial spaces across Greater Atlanta — rough-in through 277/480V distribution, one team.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F3D2B'/%3E%3Cpath d='M17.5 6L10 18h5l-1.5 8L21 14h-5l1.5-8z' fill='%23F6F4EF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -177,6 +177,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
 .svc-card:hover .svc-media img{transform:scale(1.04)}
 .svc-media.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);aspect-ratio:auto}
 .svc-media.trio img{aspect-ratio:1/1;height:auto}
+.svc-media.square{aspect-ratio:1/1}
 .svc-media.panel{display:flex;align-items:center;justify-content:center;color:var(--green)}
 .svc-media.panel svg{width:56px;height:56px;opacity:.85}
 .svc-body{padding:clamp(24px,2.8vw,36px)}
@@ -295,16 +296,26 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
 .socials a:hover{background:var(--led);border-color:var(--led);color:var(--ink);transform:translateY(-2px)}
 
 /* responsive */
-/* residential form modal */
-.form-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(12px,3vw,32px)}
-.form-modal[hidden]{display:none}
-.form-modal-backdrop{position:absolute;inset:0;background:rgba(25,26,23,.62);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.form-modal-panel{position:relative;background:var(--paper);border-radius:14px;width:min(720px,100%);max-height:90svh;overflow-y:auto;padding:clamp(16px,3vw,30px);box-shadow:0 30px 80px -20px rgba(0,0,0,.5)}
-.form-modal-close{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:var(--paper-2);color:var(--ink);font-size:1.3rem;line-height:1;display:flex;align-items:center;justify-content:center;z-index:1;transition:background .3s var(--ease),color .3s var(--ease)}
-.form-modal-close:hover{background:var(--green);color:var(--paper)}
-.form-modal iframe{width:100%;min-height:440px;border:none;display:block}
-body.form-modal-open{overflow:hidden}
-
+/* service page template */
+.page-hero{padding:0}
+.page-hero img{width:100%;aspect-ratio:21/9;object-fit:cover;display:block}
+.detail-grid{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.detail-card{background:var(--paper);padding:clamp(24px,2.8vw,36px)}
+.detail-card h3{font-size:1.15rem;font-weight:500;letter-spacing:-.012em}
+.detail-card p{margin-top:8px;color:var(--muted);font-size:.92rem;line-height:1.65}
+.feature-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(36px,6vw,88px);align-items:center}
+.feature-split.flip .feature-media{order:2}
+.feature-media{aspect-ratio:1/1;overflow:hidden}
+.feature-media img{width:100%;height:100%;object-fit:cover}
+.feature-copy h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:400;letter-spacing:-.022em;line-height:1.18;margin-top:18px}
+.feature-copy p{margin-top:18px;color:var(--muted);max-width:56ch}
+.steps-grid{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(24px,3vw,40px)}
+.step-num{font-size:.78rem;font-weight:600;letter-spacing:.14em;color:var(--green)}
+.steps-grid h3{margin-top:10px;font-size:1.06rem;font-weight:500}
+.steps-grid p{margin-top:8px;color:var(--muted);font-size:.9rem;line-height:1.6}
+@media (max-width:900px){.feature-split{grid-template-columns:1fr}.feature-split.flip .feature-media{order:0}.steps-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.detail-grid{grid-template-columns:1fr}.page-hero img{aspect-ratio:16/9}}
+@media (max-width:560px){.steps-grid{grid-template-columns:1fr}}
 @media (max-width:1000px){
   .pillars{grid-template-columns:1fr}
   .crew-grid{grid-template-columns:1fr 1fr}
@@ -355,10 +366,10 @@ body.form-modal-open{overflow:hidden}
         <li><a href="index.html">Welcome</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
         <li class="has-sub">
-          <a href="what-we-do.html">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="what-we-do.html" class="active">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <ul class="dropdown">
             <li><a href="what-we-do.html">All Services</a></li>
-            <li><a href="commercial-buildout.html">Commercial Tenant Buildouts</a></li>
+            <li><a href="commercial-buildout.html" class="active">Commercial Tenant Buildouts</a></li>
             <li><a href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a></li>
             <li><a href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a></li>
             <li><a href="ev-charging.html">EV Charging &amp; Electrification</a></li>
@@ -371,6 +382,7 @@ body.form-modal-open{overflow:hidden}
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:16782382647">678-238-2647</a>
+      <a class="btn btn-dark" href="start-your-project.html">Start your project</a>
       <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
@@ -381,15 +393,15 @@ body.form-modal-open{overflow:hidden}
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="index.html">Welcome</a>
   <a href="who-we-are.html">Who We Are</a>
-  <a href="what-we-do.html">What We Do</a>
-  <a class="m-sub" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
+  <a href="what-we-do.html" class="active">What We Do</a>
+  <a class="m-sub active" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
   <a class="m-sub" href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a>
   <a class="m-sub" href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a>
   <a class="m-sub" href="ev-charging.html">EV Charging &amp; Electrification</a>
   <a class="m-sub" href="critical-power.html">Critical Power &amp; Backup</a>
   <a class="m-sub m-sub-last" href="residential-electrical.html">Residential Electrical</a>
   <a href="ev-charging.html">EV Charging</a>
-  <a href="start-your-project.html" class="active">Start Your Project</a>
+  <a href="start-your-project.html">Start Your Project</a>
   <div class="m-contact">
     <a href="tel:16782382647">678-238-2647</a> &nbsp;·&nbsp; <a href="tel:16785912999">678-591-2999</a><br>
     <a href="mailto:accounts@abevpowersolutions.com?subject=Start%20My%20Project!">accounts@abevpowersolutions.com</a>
@@ -397,53 +409,110 @@ body.form-modal-open{overflow:hidden}
 </div>
 
 <main>
-<section class="page-head" aria-labelledby="start-h">
+<section class="page-head" aria-labelledby="page-h">
   <div class="shell">
+    <p class="eyebrow"><span class="tick"></span>What We Do</p>
+    <h1 id="page-h">Commercial Tenant Buildouts</h1>
+    <p class="lede">New space, new power. We take office, retail, warehouse, and industrial interiors from bare shell to fully energized — design through final connection.</p>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<section class="page-hero" aria-label="Commercial buildout in progress">
+  <img src="images/buildout-hero.jpg" alt="Electrician on a scissor lift installing conduit in an unfinished commercial retail space">
+</section>
+
+<!-- OVERVIEW -->
+<section aria-label="Overview">
+  <div class="shell">
+    <div class="split">
+      <p class="statement reveal">Every buildout starts with a clean electrical foundation — and ends with a space that's ready to open.</p>
+      <div class="reveal" data-delay="1">
+        <p style="color:var(--muted)">From first-generation shells to full renovations and change-of-use conversions, ABEV delivers complete electrical systems for commercial interiors across Greater Atlanta. One crew handles layout, rough-in, distribution, and finish — coordinated with your GC, your landlord, and the permit office.</p>
+        <p style="color:var(--muted);margin-top:16px">Ground-up builds? We take those on case by case — bringing everything on this page to brand-new construction.</p>
+      </div>
+    </div>
+    <div class="detail-grid">
+      <article class="detail-card reveal">
+        <h3>Build-Outs &amp; Tenant Improvements</h3>
+        <p>Complete electrical systems for office, retail, warehouse, and industrial spaces — new interiors, renovations, change-of-use conversions, and equipment and power relocations.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="2">
+        <h3>Electrical Rough-In</h3>
+        <p>Branch circuits, device boxes, and raceway systems installed clean and to code — receptacles, switches, lighting, control wiring, and equipment connections.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Service Installation &amp; Upgrades</h3>
+        <p>New electrical services, replacements, and capacity upgrades at 120/208V and 277/480V — metering equipment, main disconnects, and distribution.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="2">
+        <h3>Panelboards &amp; Distribution</h3>
+        <p>Panel installation and replacement, subpanels, breaker replacement, distribution panels, circuit additions, and load balancing.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Transformers &amp; Power Distribution</h3>
+        <p>Step-up and step-down transformers, feeder installation, and distribution equipment — placed, connected, and energized.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="2">
+        <h3>Dedicated Circuits &amp; Equipment Power</h3>
+        <p>Dedicated 120V–480V circuits for HVAC, commercial appliances, machinery, and office and IT equipment.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Raceway &amp; Conduit Systems</h3>
+        <p>EMT, rigid conduit, PVC, flexible conduit, surface-mounted raceways, and underground runs.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="2">
+        <h3>Site &amp; Exterior Electrical</h3>
+        <p>Site power, exterior receptacles, equipment feeds, pole and area lighting, and sign circuits.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section aria-label="Capabilities" style="padding-top:0">
+  <div class="shell">
+    <div class="feature-split reveal">
+      <div class="feature-media"><img src="images/buildout-panels.jpg" alt="New commercial panelboards with aligned conduit runs in an electrical room" loading="lazy"></div>
+      <div class="feature-copy">
+        <p class="eyebrow"><span class="tick"></span>Capability</p>
+        <h2>Full 277/480V capability</h2>
+        <p>Not every contractor works above 208V. ABEV designs and installs 277/480V systems in-house — the backbone of serious commercial space — alongside standard 120/208V services. If your space needs real power, you don't need a second sub.</p>
+      </div>
+    </div>
+    <div class="feature-split flip reveal" style="margin-top:clamp(64px,8vw,112px)">
+      <div class="feature-media"><img src="images/buildout-transformer.jpg" alt="Dry-type transformer on a concrete pad beside a distribution panel" loading="lazy"></div>
+      <div class="feature-copy">
+        <p class="eyebrow"><span class="tick"></span>Delivery</p>
+        <h2>From white box to grand opening</h2>
+        <p>We build to your schedule, not around it. Materials staged early, trades coordinated, closeout documented — so the only surprise on opening day is how smooth it went.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="band" aria-labelledby="process-h">
+  <div class="shell">
+    <div class="section-head">
+      <p class="eyebrow"><span class="tick"></span>Project Delivery</p>
+      <h2 id="process-h">How every project runs</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="reveal"><p class="step-num">01</p><h3>Design &amp; Planning</h3><p>Scope, load planning, layouts, and equipment selection — engineered before anyone pulls wire.</p></div>
+      <div class="reveal" data-delay="1"><p class="step-num">02</p><h3>Permitting &amp; Coordination</h3><p>Permits, utility applications, and AHJ communication — handled by one team.</p></div>
+      <div class="reveal" data-delay="2"><p class="step-num">03</p><h3>Installation</h3><p>Licensed, EVITP-certified and IBEW-trained crews. Clean workmanship, tight schedules.</p></div>
+      <div class="reveal" data-delay="3"><p class="step-num">04</p><h3>Commissioning &amp; Closeout</h3><p>Startup, testing, power verification, and complete documentation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="shell reveal">
     <p class="eyebrow"><span class="tick"></span>Start Your Project</p>
-    <h1 id="start-h">Getting started is easy.</h1>
-    <p class="lede">Choose your path below and we'll take it from there — planning, permitting, installation, final touches.</p>
-  </div>
-</section>
-<div class="shell"><div class="charge-rule" role="presentation"></div></div>
-
-<section class="start" aria-label="Project intake" style="margin-top:clamp(56px,7vw,88px)">
-  <div class="shell">
-    <div class="start-grid">
-      <div class="start-cell reveal" data-delay="1">
-        <p class="c-kicker">For homeowners</p>
-        <h3>Residential clients</h3>
-        <p class="c-copy">Charging at home should be effortless. Complete our quick intake form and receive a fast, free estimate for your EV charger or home electrical project.</p>
-        <button class="btn btn-light" type="button" id="resFormOpen">Start residential project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-      <div class="start-cell reveal" data-delay="2">
-        <p class="c-kicker">Partner with us</p>
-        <h3>Commercial clients</h3>
-        <p class="c-copy">Tell us about your commercial project — we're excited to hear what you've got going on.</p>
-        <button class="btn btn-light" type="button" id="comFormOpen">Start commercial project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-    </div>
-    <div class="start-contact reveal">
-      <div class="sc"><span class="k">Call us</span><a href="tel:16782382647">678-238-2647</a></div>
-      <div class="sc"><span class="k">Or</span><a href="tel:16785912999">678-591-2999</a></div>
-      <div class="sc"><span class="k">Email</span><a href="mailto:accounts@abevpowersolutions.com?subject=Start%20My%20Project!">accounts@abevpowersolutions.com</a></div>
-      <div class="sc"><span class="k">Visit</span>3043 Braselton Hwy, Dacula, GA 30019</div>
-    </div>
-  </div>
-</section>
-
-<section aria-labelledby="gal-h">
-  <div class="shell">
-    <div class="section-head reveal">
-      <p class="eyebrow"><span class="tick"></span>Recent Projects</p>
-      <h2 id="gal-h">The work speaks for itself.</h2>
-    </div>
-    <div class="gallery reveal" data-delay="1">
-      <figure><img src="images/project-ev-charger-complete.jpg" alt="ABEV project — completed EV charger installation" loading="lazy"></figure>
-      <figure><img src="images/project-residential-electrical.jpg" alt="ABEV project — residential electrical work" loading="lazy"></figure>
-      <figure><img src="images/project-charger-powered-up.png" alt="ABEV project — charger mounted and powered up" loading="lazy"></figure>
-      <figure><img src="images/project-commercial-install.jpg" alt="ABEV project — commercial installation" loading="lazy"></figure>
-      <figure><img src="images/project-finished-electrical.jpg" alt="ABEV project — finished electrical install" loading="lazy"></figure>
-    </div>
+    <h2>Have a project in mind?</h2>
+    <p class="sub">Tell us what you need — one team handles design, permitting, installation, and everything in between.</p>
+    <a class="btn btn-light" href="start-your-project.html">Start your project <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
   </div>
 </section>
 </main>
@@ -532,36 +601,29 @@ body.form-modal-open{overflow:hidden}
     revealEls.forEach(function(el){ io.observe(el); });
   }
 
-})();
-</script>
-
-<div class="form-modal" id="resModal" role="dialog" aria-modal="true" aria-label="Start residential project form" hidden>
-  <div class="form-modal-backdrop" data-close></div>
-  <div class="form-modal-panel">
-    <button class="form-modal-close" type="button" aria-label="Close form" data-close>&times;</button>
-    <iframe src="https://api.leadconnectorhq.com/widget/survey/KvAlrmuAtLBF8AVydjfH" style="border:none;width:100%;" scrolling="no" id="KvAlrmuAtLBF8AVydjfH" title="survey"></iframe>
-  </div>
-</div>
-<div class="form-modal" id="comModal" role="dialog" aria-modal="true" aria-label="Start commercial project form" hidden>
-  <div class="form-modal-backdrop" data-close></div>
-  <div class="form-modal-panel">
-    <button class="form-modal-close" type="button" aria-label="Close form" data-close>&times;</button>
-    <iframe src="https://api.leadconnectorhq.com/widget/survey/U8DooBAymQSBEOZ251oW" style="border:none;width:100%;" scrolling="no" id="U8DooBAymQSBEOZ251oW" title="survey"></iframe>
-  </div>
-</div>
-<script src="https://link.msgsndr.com/js/form_embed.js"></script>
-<script>
-(function(){
-  [['resFormOpen','resModal'],['comFormOpen','comModal']].forEach(function(pair){
-    var opener = document.getElementById(pair[0]);
-    var modal = document.getElementById(pair[1]);
-    if(!modal || !opener) return;
-    function openModal(){ modal.hidden = false; document.body.classList.add('form-modal-open'); modal.querySelector('.form-modal-close').focus(); }
-    function closeModal(){ modal.hidden = true; document.body.classList.remove('form-modal-open'); opener.focus(); }
-    opener.addEventListener('click', openModal);
-    modal.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && !modal.hidden) closeModal(); });
-  });
+  var form = document.getElementById('commercialForm');
+  if(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var biz = document.getElementById('bizName').value.trim();
+      var name = document.getElementById('contactName').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var email = document.getElementById('email').value.trim();
+      if(!biz || !name || !phone || !email){
+        form.querySelectorAll('input').forEach(function(i){ i.style.borderColor = i.value.trim() ? '' : '#C96A5A'; });
+        return;
+      }
+      var body = 'Commercial project inquiry%0D%0A%0D%0ABusiness name: ' + encodeURIComponent(biz) +
+        '%0D%0AContact name: ' + encodeURIComponent(name) +
+        '%0D%0APhone: ' + encodeURIComponent(phone) +
+        '%0D%0AEmail: ' + encodeURIComponent(email) +
+        '%0D%0A%0D%0AProject details: ';
+      window.location.href = 'mailto:accounts@abevpowersolutions.com?subject=' + encodeURIComponent('Start My Project! — ' + biz) + '&body=' + body;
+    });
+    form.querySelectorAll('input').forEach(function(i){
+      i.addEventListener('input', function(){ i.style.borderColor = ''; });
+    });
+  }
 })();
 </script>
 </body>

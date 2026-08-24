@@ -77,10 +77,23 @@ section{padding:clamp(88px,10vw,144px) 0;position:relative}
 .nav .btn-dark{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .nav .btn-dark:hover{background:var(--green);color:var(--paper);border-color:var(--green)}
 .nav .wordmark img{height:44px;width:auto;display:block}
+/* what-we-do dropdown */
+.has-sub{position:relative}
+.has-sub>a svg{margin-left:2px;vertical-align:-1px;transition:transform .35s var(--ease)}
+.has-sub:hover>a svg{transform:rotate(180deg)}
+.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
+.dropdown{position:absolute;top:calc(100% + 14px);left:-16px;min-width:280px;list-style:none;background:rgba(246,244,239,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 24px 48px -24px rgba(25,26,23,.28);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.has-sub:hover .dropdown,.has-sub:focus-within .dropdown{opacity:1;transform:none;pointer-events:auto}
+.dropdown a{display:block;padding:10px 14px;border-radius:10px;font-size:.88rem;white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover,.dropdown a.active{background:rgba(31,61,43,.06);color:var(--green)}
+.mobile-menu a.m-sub{font-size:1.02rem;padding:9px 0 9px 20px;border-bottom:none;color:var(--muted)}
+.mobile-menu a.m-sub-last{border-bottom:1px solid var(--line)}
 .nav-toggle{display:none;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .35s var(--ease)}
 .mobile-menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,64px);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
 .mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu{justify-content:flex-start;overflow-y:auto;padding-top:calc(78px + 4vh);padding-bottom:32px}
 .mobile-menu a{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line)}
 .mobile-menu a.active{color:var(--green);font-weight:600}
 .mobile-menu a:last-of-type{border-bottom:none}
@@ -331,7 +344,18 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       <ul class="nav-links">
         <li><a href="index.html">Welcome</a></li>
         <li><a href="who-we-are.html" class="active">Who We Are</a></li>
-        <li><a href="what-we-do.html">What We Do</a></li>
+        <li class="has-sub">
+          <a href="what-we-do.html">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="what-we-do.html">All Services</a></li>
+            <li><a href="commercial-buildout.html">Commercial Tenant Buildouts</a></li>
+            <li><a href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a></li>
+            <li><a href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a></li>
+            <li><a href="ev-charging.html">EV Charging &amp; Electrification</a></li>
+            <li><a href="critical-power.html">Critical Power &amp; Backup</a></li>
+            <li><a href="residential-electrical.html">Residential Electrical</a></li>
+          </ul>
+        </li>
         <li><a href="ev-charging.html">EV Charging</a></li>
       </ul>
     </nav>
@@ -349,6 +373,12 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
   <a href="index.html">Welcome</a>
   <a href="who-we-are.html" class="active">Who We Are</a>
   <a href="what-we-do.html">What We Do</a>
+  <a class="m-sub" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
+  <a class="m-sub" href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a>
+  <a class="m-sub" href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a>
+  <a class="m-sub" href="ev-charging.html">EV Charging &amp; Electrification</a>
+  <a class="m-sub" href="critical-power.html">Critical Power &amp; Backup</a>
+  <a class="m-sub m-sub-last" href="residential-electrical.html">Residential Electrical</a>
   <a href="ev-charging.html">EV Charging</a>
   <a href="start-your-project.html">Start Your Project</a>
   <div class="m-contact">

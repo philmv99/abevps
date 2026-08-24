@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What We Do | ABEV Power Solutions</title>
-<meta name="description" content="EV charging, full-service electrical, and construction & planning — every ABEV service from charger installs and infrastructure to maintenance, audits, and civil works.">
+<meta name="description" content="EV charging, full-service electrical, and construction & planning — every ABEV service from charger installs and infrastructure to restoration, audits, and civil works.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231F3D2B'/%3E%3Cpath d='M17.5 6L10 18h5l-1.5 8L21 14h-5l1.5-8z' fill='%23F6F4EF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,10 +77,23 @@ section{padding:clamp(88px,10vw,144px) 0;position:relative}
 .nav .btn-dark{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .nav .btn-dark:hover{background:var(--green);color:var(--paper);border-color:var(--green)}
 .nav .wordmark img{height:44px;width:auto;display:block}
+/* what-we-do dropdown */
+.has-sub{position:relative}
+.has-sub>a svg{margin-left:2px;vertical-align:-1px;transition:transform .35s var(--ease)}
+.has-sub:hover>a svg{transform:rotate(180deg)}
+.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
+.dropdown{position:absolute;top:calc(100% + 14px);left:-16px;min-width:280px;list-style:none;background:rgba(246,244,239,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 24px 48px -24px rgba(25,26,23,.28);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.has-sub:hover .dropdown,.has-sub:focus-within .dropdown{opacity:1;transform:none;pointer-events:auto}
+.dropdown a{display:block;padding:10px 14px;border-radius:10px;font-size:.88rem;white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover,.dropdown a.active{background:rgba(31,61,43,.06);color:var(--green)}
+.mobile-menu a.m-sub{font-size:1.02rem;padding:9px 0 9px 20px;border-bottom:none;color:var(--muted)}
+.mobile-menu a.m-sub-last{border-bottom:1px solid var(--line)}
 .nav-toggle{display:none;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .35s var(--ease)}
 .mobile-menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,64px);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
 .mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu{justify-content:flex-start;overflow-y:auto;padding-top:calc(78px + 4vh);padding-bottom:32px}
 .mobile-menu a{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line)}
 .mobile-menu a.active{color:var(--green);font-weight:600}
 .mobile-menu a:last-of-type{border-bottom:none}
@@ -332,7 +345,18 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       <ul class="nav-links">
         <li><a href="index.html">Welcome</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
-        <li><a href="what-we-do.html" class="active">What We Do</a></li>
+        <li class="has-sub">
+          <a href="what-we-do.html" class="active">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="what-we-do.html" class="active">All Services</a></li>
+            <li><a href="commercial-buildout.html">Commercial Tenant Buildouts</a></li>
+            <li><a href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a></li>
+            <li><a href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a></li>
+            <li><a href="ev-charging.html">EV Charging &amp; Electrification</a></li>
+            <li><a href="critical-power.html">Critical Power &amp; Backup</a></li>
+            <li><a href="residential-electrical.html">Residential Electrical</a></li>
+          </ul>
+        </li>
         <li><a href="ev-charging.html">EV Charging</a></li>
       </ul>
     </nav>
@@ -350,6 +374,12 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
   <a href="index.html">Welcome</a>
   <a href="who-we-are.html">Who We Are</a>
   <a href="what-we-do.html" class="active">What We Do</a>
+  <a class="m-sub" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
+  <a class="m-sub" href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a>
+  <a class="m-sub" href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a>
+  <a class="m-sub" href="ev-charging.html">EV Charging &amp; Electrification</a>
+  <a class="m-sub" href="critical-power.html">Critical Power &amp; Backup</a>
+  <a class="m-sub m-sub-last" href="residential-electrical.html">Residential Electrical</a>
   <a href="ev-charging.html">EV Charging</a>
   <a href="start-your-project.html">Start Your Project</a>
   <div class="m-contact">
@@ -376,7 +406,8 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
         <div class="svc-body">
           <span class="svc-tag ev">EV</span>
           <h3>EV Charger Installation</h3>
-          <p>Turn-key residential and commercial charging solutions. We handle planning, design, installation, and maintenance — tailoring each project to your specific needs.</p>
+          <p>Turn-key residential and commercial charging solutions. We handle planning, design, installation, and commissioning — tailoring each project to your specific needs.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="ev-charging.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -385,6 +416,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag ev">EV</span>
           <h3>EV Infrastructure</h3>
           <p>End-to-end support for the buildout or upgrade of electrical infrastructure, coordinating closely with utilities and stakeholders so charging systems stay fully supported and on track.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="ev-charging.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -392,7 +424,8 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
         <div class="svc-body">
           <span class="svc-tag">Site</span>
           <h3>Civil Works</h3>
-          <p>Steel bollard and wheel stop installation, plus concrete and asphalt repair, reconditioning, and surface preparation that supports long-lasting EV charging sites.</p>
+          <p>Steel bollard and wheel stop installation, plus concrete and asphalt restoration, reconditioning, and surface preparation that supports long-lasting EV charging sites.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="ev-charging.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -401,6 +434,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Site</span>
           <h3>Stenciling &amp; Painting</h3>
           <p>High-quality striping and stenciling for clearly marked, fully compliant EV parking spaces.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="ev-charging.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -409,22 +443,16 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Electrical</span>
           <h3>Commercial Tenant Buildouts</h3>
           <p>From setting up a new location to upgrading an existing space — efficient, precise tenant improvements backed by decades of trade experience.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="commercial-buildout.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
-        <div class="svc-media"><img src="images/electrical-maintenance-thermal.jpg" alt="Thermal scanning during routine electrical maintenance" loading="lazy"></div>
+        <div class="svc-media"><img src="images/restoration-work.png" alt="ABEV electrician performing electrical restoration work" loading="lazy"></div>
         <div class="svc-body">
           <span class="svc-tag">Electrical</span>
-          <h3>Service Contracts &amp; Maintenance</h3>
-          <p>Routine maintenance plans designed to keep systems reliable and efficient — including thermal scanning and inspections that identify potential issues before they become costly problems.</p>
-        </div>
-      </article>
-      <article class="svc-card reveal">
-        <div class="svc-media"><img src="images/repair-restoration.png" alt="ABEV electrician performing repair and restoration work" loading="lazy"></div>
-        <div class="svc-body">
-          <span class="svc-tag">Electrical</span>
-          <h3>Electrical Repairs &amp; Restoration</h3>
-          <p>Prompt, professional repair for commercial electrical systems — troubleshooting, diagnostics, and restoration of power, lighting, and equipment to minimize downtime with safe, code-compliant solutions.</p>
+          <h3>Electrical Restoration &amp; Replacement</h3>
+          <p>When storms, water, or failed equipment take power down, we restore it safely — full restoration, panel and breaker replacement, code corrections, and emergency response.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="electrical-restoration.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -433,6 +461,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Electrical</span>
           <h3>Energy Efficiency Audits</h3>
           <p>Detailed audits that identify inefficiencies, optimize performance, and reduce operating costs — evaluating systems, equipment, and usage patterns with actionable recommendations.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="lighting-efficiency.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -441,6 +470,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Planning</span>
           <h3>Design &amp; Project Management</h3>
           <p>Comprehensive support from concept to completion. Whether you need stamped, engineered drawings or simplified design with permitting, we provide full-service consulting, planning, and coordination.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="start-your-project.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -449,6 +479,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Electrical</span>
           <h3>Generator Installation</h3>
           <p>Reliable backup power to keep operations running smoothly — professional generator installation, including power inlet boxes, so your systems are ready when you need them most.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="critical-power.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
       <article class="svc-card reveal">
@@ -457,6 +488,16 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <span class="svc-tag">Electrical</span>
           <h3>LED Lighting Upgrades</h3>
           <p>Energy-efficient lighting designed to lower operating costs and improve performance — retrofits and full LED upgrades for brighter, longer-lasting, more sustainable systems.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="lighting-efficiency.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media"><img src="images/residential-panel.jpg" alt="New residential electrical panel with neatly organized wiring" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-tag">Residential</span>
+          <h3>Residential Electrical</h3>
+          <p>Panel upgrades, dedicated circuits, lighting, surge protection, and home EV charging — commercial-grade standards, sized for your home.</p>
+          <a class="link-arrow" style="margin-top:16px;font-size:.9rem" href="residential-electrical.html">Explore <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </article>
     </div>

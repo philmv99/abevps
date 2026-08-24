@@ -77,10 +77,23 @@ section{padding:clamp(88px,10vw,144px) 0;position:relative}
 .nav .btn-dark{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .nav .btn-dark:hover{background:var(--green);color:var(--paper);border-color:var(--green)}
 .nav .wordmark img{height:44px;width:auto;display:block}
+/* what-we-do dropdown */
+.has-sub{position:relative}
+.has-sub>a svg{margin-left:2px;vertical-align:-1px;transition:transform .35s var(--ease)}
+.has-sub:hover>a svg{transform:rotate(180deg)}
+.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
+.dropdown{position:absolute;top:calc(100% + 14px);left:-16px;min-width:280px;list-style:none;background:rgba(246,244,239,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 24px 48px -24px rgba(25,26,23,.28);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.has-sub:hover .dropdown,.has-sub:focus-within .dropdown{opacity:1;transform:none;pointer-events:auto}
+.dropdown a{display:block;padding:10px 14px;border-radius:10px;font-size:.88rem;white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover,.dropdown a.active{background:rgba(31,61,43,.06);color:var(--green)}
+.mobile-menu a.m-sub{font-size:1.02rem;padding:9px 0 9px 20px;border-bottom:none;color:var(--muted)}
+.mobile-menu a.m-sub-last{border-bottom:1px solid var(--line)}
 .nav-toggle{display:none;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .35s var(--ease)}
 .mobile-menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,64px);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
 .mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu{justify-content:flex-start;overflow-y:auto;padding-top:calc(78px + 4vh);padding-bottom:32px}
 .mobile-menu a{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line)}
 .mobile-menu a.active{color:var(--green);font-weight:600}
 .mobile-menu a:last-of-type{border-bottom:none}
@@ -282,6 +295,19 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
 .socials a:hover{background:var(--led);border-color:var(--led);color:var(--ink);transform:translateY(-2px)}
 
 /* responsive */
+/* service page template */
+.detail-grid{margin-top:clamp(44px,5vw,64px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.detail-card{background:var(--paper);padding:clamp(24px,2.8vw,36px)}
+.detail-card h3{font-size:1.15rem;font-weight:500;letter-spacing:-.012em}
+.detail-card p{margin-top:8px;color:var(--muted);font-size:.92rem;line-height:1.65}
+.feature-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(36px,6vw,88px);align-items:center}
+.feature-split.flip .feature-media{order:2}
+.feature-media{aspect-ratio:1/1;overflow:hidden}
+.feature-media img{width:100%;height:100%;object-fit:cover}
+.feature-copy h2{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:400;letter-spacing:-.022em;line-height:1.18;margin-top:18px}
+.feature-copy p{margin-top:18px;color:var(--muted);max-width:56ch}
+@media (max-width:900px){.feature-split{grid-template-columns:1fr}.feature-split.flip .feature-media{order:0}}
+@media (max-width:700px){.detail-grid{grid-template-columns:1fr}}
 @media (max-width:1000px){
   .pillars{grid-template-columns:1fr}
   .crew-grid{grid-template-columns:1fr 1fr}
@@ -331,7 +357,18 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       <ul class="nav-links">
         <li><a href="index.html">Welcome</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
-        <li><a href="what-we-do.html">What We Do</a></li>
+        <li class="has-sub">
+          <a href="what-we-do.html">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="what-we-do.html">All Services</a></li>
+            <li><a href="commercial-buildout.html">Commercial Tenant Buildouts</a></li>
+            <li><a href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a></li>
+            <li><a href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a></li>
+            <li><a href="ev-charging.html" class="active">EV Charging &amp; Electrification</a></li>
+            <li><a href="critical-power.html">Critical Power &amp; Backup</a></li>
+            <li><a href="residential-electrical.html">Residential Electrical</a></li>
+          </ul>
+        </li>
         <li><a href="ev-charging.html" class="active">EV Charging</a></li>
       </ul>
     </nav>
@@ -349,6 +386,12 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
   <a href="index.html">Welcome</a>
   <a href="who-we-are.html">Who We Are</a>
   <a href="what-we-do.html">What We Do</a>
+  <a class="m-sub" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
+  <a class="m-sub" href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a>
+  <a class="m-sub" href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a>
+  <a class="m-sub" href="ev-charging.html">EV Charging &amp; Electrification</a>
+  <a class="m-sub" href="critical-power.html">Critical Power &amp; Backup</a>
+  <a class="m-sub m-sub-last" href="residential-electrical.html">Residential Electrical</a>
   <a href="ev-charging.html" class="active">EV Charging</a>
   <a href="start-your-project.html">Start Your Project</a>
   <div class="m-contact">
@@ -430,6 +473,58 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
             <p>Approve your estimate and we take care of permitting and installation — sustainable solutions from start to finish.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL EV CAPABILITIES -->
+<section aria-labelledby="evcap-h" style="padding-top:0">
+  <div class="shell">
+    <div class="section-head reveal">
+      <p class="eyebrow"><span class="tick"></span>Capabilities</p>
+      <h2 id="evcap-h">Every layer of EV infrastructure</h2>
+    </div>
+    <div class="detail-grid">
+      <article class="detail-card reveal">
+        <h3>Commercial Charging Infrastructure</h3>
+        <p>Level 2 and DC fast charging for fleets, workplaces, multifamily, retail, and public sites.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="1">
+        <h3>Residential Charger Installation</h3>
+        <p>Hardwired Level 2 EVSE, dedicated EV circuits, panel capacity evaluation, and service upgrades for home charging.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>EV-Ready Infrastructure</h3>
+        <p>Switchgear, transformers, panels, feeders, conduit, and raceways sized for the chargers you'll add tomorrow — not just the ones installed today.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="1">
+        <h3>Site &amp; Civil Work</h3>
+        <p>Trenching, excavation, concrete, equipment pads, charger foundations, bollards, wheel stops, and full pavement restoration.</p>
+      </article>
+      <article class="detail-card reveal">
+        <h3>Parking Preparation &amp; Stenciling</h3>
+        <p>Space layout, pavement markings, EV stencils, ADA coordination, and signage installation.</p>
+      </article>
+      <article class="detail-card reveal" data-delay="1">
+        <h3>Commissioning &amp; Startup</h3>
+        <p>Startup, electrical testing, power verification, charger relocation, replacement, and removal.</p>
+      </article>
+    </div>
+    <div class="feature-split reveal" style="margin-top:clamp(64px,8vw,112px)">
+      <div class="feature-media"><img src="images/ev-ready.jpg" alt="Capped conduit stub-ups on concrete pads awaiting future EV chargers" loading="lazy"></div>
+      <div class="feature-copy">
+        <p class="eyebrow"><span class="tick"></span>Future-Proof</p>
+        <h2>Built for the chargers you haven't bought yet</h2>
+        <p>The most expensive mistake in EV infrastructure is sizing for today. We stub conduit, size gear, and plan capacity so your next phase is a bolt-down — not a bulldozer.</p>
+      </div>
+    </div>
+    <div class="feature-split flip reveal" style="margin-top:clamp(64px,8vw,112px)">
+      <div class="feature-media"><img src="images/ev-commissioning.jpg" alt="Technician commissioning a DC fast charger with a tablet" loading="lazy"></div>
+      <div class="feature-copy">
+        <p class="eyebrow"><span class="tick"></span>Handover</p>
+        <h2>Verified before we hand you the keys</h2>
+        <p>Every charger we install is started up, tested, and power-verified before it goes live — and when equipment needs to move, be swapped, or come out, we handle that too.</p>
       </div>
     </div>
   </div>

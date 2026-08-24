@@ -77,10 +77,23 @@ section{padding:clamp(88px,10vw,144px) 0;position:relative}
 .nav .btn-dark{background:transparent;color:var(--ink);border:1px solid var(--ink)}
 .nav .btn-dark:hover{background:var(--green);color:var(--paper);border-color:var(--green)}
 .nav .wordmark img{height:44px;width:auto;display:block}
+/* what-we-do dropdown */
+.has-sub{position:relative}
+.has-sub>a svg{margin-left:2px;vertical-align:-1px;transition:transform .35s var(--ease)}
+.has-sub:hover>a svg{transform:rotate(180deg)}
+.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
+.dropdown{position:absolute;top:calc(100% + 14px);left:-16px;min-width:280px;list-style:none;background:rgba(246,244,239,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:10px;box-shadow:0 24px 48px -24px rgba(25,26,23,.28);opacity:0;transform:translateY(8px);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.has-sub:hover .dropdown,.has-sub:focus-within .dropdown{opacity:1;transform:none;pointer-events:auto}
+.dropdown a{display:block;padding:10px 14px;border-radius:10px;font-size:.88rem;white-space:nowrap}
+.dropdown a::after{display:none}
+.dropdown a:hover,.dropdown a.active{background:rgba(31,61,43,.06);color:var(--green)}
+.mobile-menu a.m-sub{font-size:1.02rem;padding:9px 0 9px 20px;border-bottom:none;color:var(--muted)}
+.mobile-menu a.m-sub-last{border-bottom:1px solid var(--line)}
 .nav-toggle{display:none;width:44px;height:44px;flex-direction:column;align-items:center;justify-content:center;gap:6px}
 .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .35s var(--ease),opacity .35s var(--ease)}
 .mobile-menu{position:fixed;inset:0;z-index:99;background:var(--paper);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(24px,8vw,64px);opacity:0;pointer-events:none;transition:opacity .4s var(--ease)}
 .mobile-menu.open{opacity:1;pointer-events:auto}
+.mobile-menu{justify-content:flex-start;overflow-y:auto;padding-top:calc(78px + 4vh);padding-bottom:32px}
 .mobile-menu a{font-size:clamp(1.7rem,7vw,2.5rem);letter-spacing:-.02em;padding:14px 0;border-bottom:1px solid var(--line)}
 .mobile-menu a.active{color:var(--green);font-weight:600}
 .mobile-menu a:last-of-type{border-bottom:none}
@@ -110,6 +123,23 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
 .hero-badge,.hero h1,.hero .hero-sub,.hero .btn,.hero-cred{opacity:0;transform:translateY(22px);animation:rise 1s var(--ease) forwards}
 .hero h1{animation-delay:.12s}.hero .hero-sub{animation-delay:.24s}.hero .btn{animation-delay:.36s}.hero-cred{animation-delay:.55s}
 @keyframes rise{to{opacity:1;transform:none}}
+
+/* client logo marquee */
+.logo-marquee{padding:clamp(39px,4.9vw,63px) 0 0}
+.marquee{position:relative;overflow:hidden}
+.marquee-track{display:flex;width:max-content;animation:logoScroll 55s linear infinite}
+.marquee-set{display:flex;align-items:center;gap:clamp(36px,4.5vw,58px);padding-right:clamp(36px,4.5vw,58px);flex:none}
+.marquee-set img{display:block;opacity:.92}
+@keyframes logoScroll{to{transform:translateX(-50%)}}
+.marquee-fade{position:absolute;top:0;bottom:0;width:clamp(70px,14vw,210px);z-index:2;pointer-events:none}
+.marquee-fade.left{left:0;--dir:to right}
+.marquee-fade.right{right:0;--dir:to left}
+.marquee-fade i{position:absolute;inset:0}
+.marquee-fade i:nth-child(1){backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);-webkit-mask-image:linear-gradient(var(--dir),#000 0%,#000 55%,transparent 100%);mask-image:linear-gradient(var(--dir),#000 0%,#000 55%,transparent 100%)}
+.marquee-fade i:nth-child(2){backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);-webkit-mask-image:linear-gradient(var(--dir),#000 0%,#000 30%,transparent 65%);mask-image:linear-gradient(var(--dir),#000 0%,#000 30%,transparent 65%)}
+.marquee-fade i:nth-child(3){backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(var(--dir),#000 0%,#000 12%,transparent 35%);mask-image:linear-gradient(var(--dir),#000 0%,#000 12%,transparent 35%)}
+.marquee-fade i:nth-child(4){background:linear-gradient(var(--dir),var(--paper) 0%,rgba(246,244,239,0) 60%)}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -329,7 +359,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
   .charge-graphic .pulse-dot{display:none}
 }
 .hero{overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(246,244,239,.94) 0%,rgba(246,244,239,.66) 26%,rgba(246,244,239,.1) 52%,rgba(246,244,239,0) 66%,rgba(246,244,239,.42) 92%,rgba(246,244,239,.86) 100%),url("images/teslabg.jpg") center 62%/cover no-repeat;opacity:0;transform:scale(.95);animation:heroBg 2s var(--ease) forwards}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(246,244,239,.94) 0%,rgba(246,244,239,.66) 26%,rgba(246,244,239,.1) 52%,rgba(246,244,239,0) 66%,rgba(246,244,239,.42) 92%,rgba(246,244,239,.86) 100%),url("images/abevhero.jpg") center 62%/cover no-repeat;opacity:0;transform:scale(.95);animation:heroBg 2s var(--ease) forwards}
 @keyframes heroBg{to{opacity:1;transform:scale(1)}}</style>
 </head>
 <body>
@@ -342,7 +372,18 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       <ul class="nav-links">
         <li><a href="index.html" class="active">Welcome</a></li>
         <li><a href="who-we-are.html">Who We Are</a></li>
-        <li><a href="what-we-do.html">What We Do</a></li>
+        <li class="has-sub">
+          <a href="what-we-do.html">What We Do <svg width="10" height="10" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <ul class="dropdown">
+            <li><a href="what-we-do.html">All Services</a></li>
+            <li><a href="commercial-buildout.html">Commercial Tenant Buildouts</a></li>
+            <li><a href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a></li>
+            <li><a href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a></li>
+            <li><a href="ev-charging.html">EV Charging &amp; Electrification</a></li>
+            <li><a href="critical-power.html">Critical Power &amp; Backup</a></li>
+            <li><a href="residential-electrical.html">Residential Electrical</a></li>
+          </ul>
+        </li>
         <li><a href="ev-charging.html">EV Charging</a></li>
       </ul>
     </nav>
@@ -360,6 +401,12 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
   <a href="index.html" class="active">Welcome</a>
   <a href="who-we-are.html">Who We Are</a>
   <a href="what-we-do.html">What We Do</a>
+  <a class="m-sub" href="commercial-buildout.html">Commercial Tenant Buildouts</a>
+  <a class="m-sub" href="electrical-restoration.html">Electrical Restoration &amp; Replacement</a>
+  <a class="m-sub" href="lighting-efficiency.html">Lighting &amp; Energy Efficiency</a>
+  <a class="m-sub" href="ev-charging.html">EV Charging &amp; Electrification</a>
+  <a class="m-sub" href="critical-power.html">Critical Power &amp; Backup</a>
+  <a class="m-sub m-sub-last" href="residential-electrical.html">Residential Electrical</a>
   <a href="ev-charging.html">EV Charging</a>
   <a href="start-your-project.html">Start Your Project</a>
   <div class="m-contact">
@@ -384,6 +431,70 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       <li>Licensed &amp; Insured</li>
       <li>100% Satisfaction Guarantee</li>
     </ul>
+  </div>
+</section>
+
+<!-- CLIENT LOGO MARQUEE -->
+<section class="logo-marquee" aria-label="Companies we have worked with">
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-set">
+        <img src="images/logos/tesla.webp" alt="Tesla" width="28" height="27">
+        <img src="images/logos/chargepoint.webp" alt="ChargePoint" width="119" height="22">
+        <img src="images/logos/marriott.webp" alt="Marriott" width="45" height="27">
+        <img src="images/logos/georgia-power.webp" alt="Georgia Power" width="119" height="21">
+        <img src="images/logos/costco.webp" alt="Costco Wholesale" width="99" height="27">
+        <img src="images/logos/ua-local-72.webp" alt="UA Local 72 Atlanta" width="27" height="27">
+        <img src="images/logos/eaton.webp" alt="Eaton" width="96" height="27">
+        <img src="images/logos/uga.webp" alt="University of Georgia" width="88" height="27">
+        <img src="images/logos/acura.webp" alt="Acura" width="30" height="27">
+        <img src="images/logos/lakeshore-mall.webp" alt="Lakeshore Mall" width="119" height="20">
+        <img src="images/logos/golds-gym.webp" alt="Gold's Gym" width="27" height="27">
+        <img src="images/logos/elme.webp" alt="Elme Communities" width="108" height="27">
+        <img src="images/logos/faa.webp" alt="Federal Aviation Administration" width="27" height="27">
+        <img src="images/logos/toyo.webp" alt="Toyo Tires" width="119" height="13">
+        <img src="images/logos/protective-life.webp" alt="Protective Life" width="56" height="27">
+        <img src="images/logos/outpost.webp" alt="Outpost Gold &amp; Gem Panning" width="27" height="27">
+        <img src="images/logos/uline.webp" alt="Uline" width="75" height="27">
+        <img src="images/logos/carvana.webp" alt="Carvana" width="27" height="27">
+        <img src="images/logos/srs.webp" alt="SRS Distribution" width="45" height="27">
+        <img src="images/logos/piedmont-driving-club.webp" alt="Piedmont Driving Club" width="33" height="27">
+        <img src="images/logos/primary.webp" alt="PR1MARY" width="119" height="16">
+        <img src="images/logos/second-harvest.webp" alt="Second Harvest Food Bank" width="42" height="27">
+        <img src="images/logos/tory-burch.webp" alt="Tory Burch" width="30" height="27">
+        <img src="images/logos/loomis.webp" alt="Loomis" width="47" height="27">
+        <img src="images/logos/town-crest.webp" alt="Client logo" width="23" height="27">
+      </div>
+      <div class="marquee-set" aria-hidden="true">
+        <img src="images/logos/tesla.webp" alt="" width="28" height="27">
+        <img src="images/logos/chargepoint.webp" alt="" width="119" height="22">
+        <img src="images/logos/marriott.webp" alt="" width="45" height="27">
+        <img src="images/logos/georgia-power.webp" alt="" width="119" height="21">
+        <img src="images/logos/costco.webp" alt="" width="99" height="27">
+        <img src="images/logos/ua-local-72.webp" alt="" width="27" height="27">
+        <img src="images/logos/eaton.webp" alt="" width="96" height="27">
+        <img src="images/logos/uga.webp" alt="" width="88" height="27">
+        <img src="images/logos/acura.webp" alt="" width="30" height="27">
+        <img src="images/logos/lakeshore-mall.webp" alt="" width="119" height="20">
+        <img src="images/logos/golds-gym.webp" alt="" width="27" height="27">
+        <img src="images/logos/elme.webp" alt="" width="108" height="27">
+        <img src="images/logos/faa.webp" alt="" width="27" height="27">
+        <img src="images/logos/toyo.webp" alt="" width="119" height="13">
+        <img src="images/logos/protective-life.webp" alt="" width="56" height="27">
+        <img src="images/logos/outpost.webp" alt="" width="27" height="27">
+        <img src="images/logos/uline.webp" alt="" width="75" height="27">
+        <img src="images/logos/carvana.webp" alt="" width="27" height="27">
+        <img src="images/logos/srs.webp" alt="" width="45" height="27">
+        <img src="images/logos/piedmont-driving-club.webp" alt="" width="33" height="27">
+        <img src="images/logos/primary.webp" alt="" width="119" height="16">
+        <img src="images/logos/second-harvest.webp" alt="" width="42" height="27">
+        <img src="images/logos/tory-burch.webp" alt="" width="30" height="27">
+        <img src="images/logos/loomis.webp" alt="" width="47" height="27">
+        <img src="images/logos/town-crest.webp" alt="" width="23" height="27">
+      </div>
+    </div>
+    <div class="marquee-fade left" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="marquee-fade right" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
   </div>
 </section>
 
@@ -433,7 +544,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
       </div>
       <div>
         <p class="statement reveal">Powering your world, one project at a time — from cutting-edge EV charging to complete electrical services for residential, commercial, and industrial clients.</p>
-        <p class="support reveal" data-delay="1">We stay from the first drawing to the final inspection. Design, installation, and ongoing maintenance are handled by one accountable team — so safety, code compliance, and seamless performance are built into every step of the way.</p>
+        <p class="support reveal" data-delay="1">We stay from the first drawing to final sign-off. Design, installation, and commissioning are handled by one accountable team — so safety, code compliance, and seamless performance are built into every step of the way.</p>
       </div>
     </div>
     <div class="stat-row reveal" data-delay="2">
@@ -469,14 +580,14 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
         </div>
       </article>
       <article class="pillar reveal" data-delay="2">
-        <div class="pillar-media"><img src="images/electrical-maintenance-thermal.jpg" alt="Electrical maintenance work on a commercial system" loading="lazy"></div>
+        <div class="pillar-media"><img src="images/restoration-work.png" alt="Electrical restoration work on a commercial system" loading="lazy"></div>
         <div class="pillar-body">
           <p class="p-kicker">02 — Full service</p>
           <h3>Electrical Services</h3>
           <ul>
             <li>Commercial tenant buildouts &amp; remodels</li>
-            <li>Electrical repairs &amp; emergency restoration</li>
-            <li>Service contracts &amp; ongoing maintenance</li>
+            <li>Electrical restoration &amp; emergency response</li>
+            <li>Panel replacement &amp; surge protection</li>
           </ul>
         </div>
       </article>
@@ -486,7 +597,7 @@ body.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate
           <p class="p-kicker">03 — Site &amp; strategy</p>
           <h3>Construction &amp; Planning</h3>
           <ul>
-            <li>Civil works — bollards, wheel stops, concrete &amp; asphalt repair</li>
+            <li>Civil works — bollards, wheel stops, concrete &amp; asphalt restoration</li>
             <li>Project management &amp; permitting support</li>
             <li>End-to-end planning to keep projects on track</li>
           </ul>
