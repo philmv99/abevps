@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Moved | ABEV Power Solutions</title>
+<meta name="robots" content="noindex">
+<script>
+(function(){
+  var base = /github\.io$/.test(location.hostname) ? "/abevps" : "";
+  var p = location.pathname;
+  if (base && p.indexOf(base) === 0) p = p.slice(base.length);
+  p = p.toLowerCase();
+  var map = [
+    [/electric-vehicle|ev-charg|^\/ev\b/, "ev-charging.html"],
+    [/^\/electrical-services\/(new-construction|maintenance)/, "residential-electrical.html"],
+    [/^\/electrical-services\/repairs/, "electrical-restoration.html"],
+    [/^\/electrical-services/, "what-we-do.html"],
+    [/^\/commercial/, "commercial-buildout.html"],
+    [/^\/residential/, "residential-electrical.html"],
+    [/lighting|\bled\b/, "lighting-efficiency.html"],
+    [/generator|backup/, "critical-power.html"],
+    [/about|who-we/, "who-we-are.html"],
+    [/contact|quote|estimate|project/, "start-your-project.html"]
+  ];
+  for (var i = 0; i < map.length; i++) {
+    if (map[i][0].test(p)) { location.replace(base + "/" + map[i][1]); return; }
+  }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F6F4EF;--ink:#191A17;--green:#1F3D2B;--led:#5FBF7E;--line:#DDD7CB;--muted:#5C5F58;--ease:cubic-bezier(.22,.61,.21,1)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .wrap{max-width:640px;text-align:center}
+  .eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:600}
+  h1{margin-top:14px;font-size:clamp(1.9rem,5vw,2.8rem);font-weight:500;letter-spacing:-.02em}
+  p{margin-top:16px;color:var(--muted);line-height:1.65}
+  .links{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .links a{display:inline-block;padding:11px 20px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.9rem;transition:all .35s var(--ease);background:#fff}
+  .links a:hover{border-color:var(--green);color:var(--green)}
+  .links a.primary{background:var(--green);border-color:var(--green);color:var(--paper)}
+  .links a.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">ABEV Power Solutions</div>
+  <h1>This page has moved.</h1>
+  <p>We recently rebuilt our site, and the address you followed points to our old structure. Everything is still here — pick up where you left off below.</p>
+  <div class="links">
+    <a class="primary" href="/">Home</a>
+    <a href="/what-we-do.html">What We Do</a>
+    <a href="/ev-charging.html">EV Charging</a>
+    <a href="/who-we-are.html">Who We Are</a>
+    <a href="/start-your-project.html">Start Your Project</a>
+  </div>
+</div>
+<script>
+(function(){
+  if (/github\.io$/.test(location.hostname)) {
+    var links = document.querySelectorAll(".links a");
+    for (var i = 0; i < links.length; i++) {
+      links[i].setAttribute("href", "/abevps" + links[i].getAttribute("href").replace(/\/$/, "/index.html"));
+    }
+  }
+})();
+</script>
+</body>
+</html>
